@@ -36,6 +36,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   def destroy
     @category.destroy
+    head :no_content
   end
 
   private
@@ -46,6 +47,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def category_params
-      params.require(:category).permit(:name)
+      params.permit(:name)
     end
 end

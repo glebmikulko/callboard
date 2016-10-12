@@ -36,6 +36,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy
+    head :no_content
   end
 
   private
@@ -46,6 +47,6 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:title, :body, :price, :status)
+      params.permit(:title, :body, :price, :status)
     end
 end
